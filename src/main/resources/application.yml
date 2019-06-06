@@ -1,0 +1,47 @@
+server:
+  port: 8080
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgnEzp25qlRJqe/IWf88o
+          lfkOl9a7tX4wgDrLLzguzMIAHdLv2do1qb48nPJPJYElD6wVTguokOTOND+4oFzJ
+          Oob/t/6cQ65gPCXVo8OfN1jrternBEIu9t2FuSmn/Ica+JvIZ4NJFz1UnxY1fYGv
+          WMjsMwpOZk8uU39Pu8ywyyaRPXYi0Sbk8vj35GjdwkhshBOUaE45JlZpBms6HerY
+          45TBbHTiC9hFQ8slwEd8DIsLYhSlogmCC7hciOVlNEJxUoumq1M20wlizkWhxCyM
+          Q/5OZMLDBzhK7+lgp9M3ZUdJFOgNKbkR/gdktWC4RZxp90t+Ztct6pHoNz5K/0ji
+          ZwIDAQAB
+          -----END PUBLIC KEY-----
+logging:
+  level:
+     org:
+       springframework:
+        web:  DEBUG
+        hibernate:  DEBUG
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:derby://localhost:1527/sample;create=false
+    username: anjan 
+    password: anjan123
+    driver-class-name: org.apache.derby.jdbc.ClientDriver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+    platform: derby
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.DerbyDialect
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: validate
+
+      
+      
+      
